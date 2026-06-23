@@ -1,0 +1,873 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FutureBridge — Mentorship beyond grades</title>
+<meta name="description" content="FutureBridge connects students aged 16 to first-year university with mentors a few steps ahead — for clarity and direction beyond grades.">
+<meta property="og:title" content="FutureBridge">
+<meta property="og:description" content="Mentorship beyond grades. Free to join.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://futurebridge.network">
+<link rel="icon" type="image/png" href="icon_only.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --navy: #0B2545;
+    --navy-soft: #16315A;
+    --cream: #FAF3E3;
+    --cream-dim: #F1E8D2;
+    --gold: #C9A35C;
+    --gold-soft: #DCC08A;
+    --ink-muted: #5C6B7A;
+    --white: #FFFDF8;
+
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Lora', serif;
+
+    --max-width: 1100px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--navy);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+
+  /* ---------- Nav ---------- */
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(250, 243, 227, 0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(11, 37, 69, 0.08);
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-brand img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .nav-brand span {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--navy);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+
+  .nav-links a {
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  .nav-cta {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.88rem;
+    background: var(--navy);
+    color: var(--cream);
+    padding: 9px 18px;
+    border-radius: 100px;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--navy-soft); }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    position: relative;
+    padding: 170px 24px 120px;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.4vw, 4.2rem);
+    line-height: 1.08;
+    max-width: 820px;
+    margin-bottom: 26px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+    font-weight: 800;
+  }
+
+  .hero p.lead {
+    font-family: var(--font-body);
+    font-size: 1.18rem;
+    color: var(--ink-muted);
+    max-width: 560px;
+    margin-bottom: 38px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 30px;
+    border-radius: 100px;
+    display: inline-block;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--navy);
+    color: var(--cream);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(11, 37, 69, 0.22);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid rgba(11, 37, 69, 0.25);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--navy);
+    transform: translateY(-2px);
+  }
+
+  /* Arch motif - the signature element */
+  .arch-line {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1400px;
+    max-width: 200vw;
+    height: 280px;
+    z-index: 1;
+    opacity: 0.55;
+  }
+
+  .arch-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: -1px;
+  }
+
+  .arch-divider svg {
+    width: 100%;
+    height: 60px;
+    display: block;
+  }
+
+  /* ---------- Section generic ---------- */
+
+  section {
+    padding: 96px 0;
+  }
+
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  .section-head .eyebrow { margin-bottom: 14px; }
+
+  .section-head h2 {
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    line-height: 1.18;
+  }
+
+  .section-head p {
+    color: var(--ink-muted);
+    margin-top: 14px;
+    font-size: 1.05rem;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js-ready .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .js-ready .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- How it works ---------- */
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    position: relative;
+  }
+
+  .step {
+    position: relative;
+    padding-top: 28px;
+  }
+
+  .step-pillar {
+    width: 28px;
+    height: 22px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .step-pillar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+
+  .step-pillar::after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    bottom: 0;
+    width: 2px;
+    height: 70%;
+    background: var(--gold);
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+
+  .step h3 {
+    font-size: 1.12rem;
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    color: var(--ink-muted);
+    font-size: 0.98rem;
+  }
+
+  @media (max-width: 800px) {
+    .steps { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ---------- Who it's for ---------- */
+
+  .audience {
+    background: var(--navy);
+    color: var(--cream);
+  }
+
+  .audience .section-head h2,
+  .audience .section-head .eyebrow { color: var(--cream); }
+  .audience .section-head .eyebrow { color: var(--gold-soft); }
+  .audience .section-head p { color: rgba(250, 243, 227, 0.65); }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .audience-card {
+    background: var(--navy-soft);
+    border-radius: 18px;
+    padding: 38px 34px;
+    border: 1px solid rgba(250, 243, 227, 0.08);
+  }
+
+  .audience-card .tag {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .audience-card h3 {
+    color: var(--cream);
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+  }
+
+  .audience-card p {
+    color: rgba(250, 243, 227, 0.78);
+    font-size: 0.98rem;
+    margin-bottom: 22px;
+  }
+
+  .audience-card .btn-ghost {
+    color: var(--cream);
+    border-color: rgba(250, 243, 227, 0.3);
+  }
+
+  .audience-card .btn-ghost:hover {
+    border-color: var(--cream);
+  }
+
+  .fields-list {
+    margin-top: 64px;
+    text-align: center;
+  }
+
+  .fields-list .tag {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .fields-pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .fields-pills span {
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1px solid rgba(250, 243, 227, 0.22);
+    color: rgba(250, 243, 227, 0.9);
+  }
+
+  @media (max-width: 800px) {
+    .audience-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Playbooks ---------- */
+
+  .playbooks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .playbook-card {
+    background: var(--white);
+    border: 1px solid rgba(11, 37, 69, 0.08);
+    border-radius: 16px;
+    padding: 28px 26px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .playbook-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(11, 37, 69, 0.1);
+  }
+
+  .playbook-card .field-tag {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .playbook-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .playbook-card p {
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+
+  .playbook-card .price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .playbook-card .price {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--navy);
+  }
+
+  .playbook-card .get-link {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--navy);
+    border-bottom: 1.5px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .playbook-card .get-link:hover { color: var(--gold); }
+
+  .playbooks-note {
+    margin-top: 36px;
+    color: var(--ink-muted);
+    font-size: 0.94rem;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .playbooks-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .playbooks-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Join ---------- */
+
+  .join {
+    text-align: center;
+  }
+
+  .join .section-head {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .join-ctas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .join-card {
+    background: var(--white);
+    border: 1px solid rgba(11, 37, 69, 0.08);
+    border-radius: 18px;
+    padding: 36px 40px;
+    width: 280px;
+    text-align: left;
+  }
+
+  .join-card .tag {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .join-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+
+  .join-card p {
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+    margin-bottom: 22px;
+  }
+
+  .join-card .btn { width: 100%; text-align: center; }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    border-top: 1px solid rgba(11, 37, 69, 0.1);
+    padding: 44px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-brand img { width: 28px; height: 28px; }
+
+  .footer-brand span {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 22px;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+  }
+
+  .footer-links a:hover { color: var(--navy); }
+
+  .footer-note {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <img src="icon_only.png" alt="FutureBridge icon">
+      <span>FutureBridge</span>
+    </a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#who">Who it's for</a>
+      <a href="#playbooks">Playbooks</a>
+    </div>
+    <a href="#join" class="nav-cta">Join free</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Mentorship beyond grades</span>
+    <h1>Everyone asks what you want to do.<br>Nobody teaches you <em>how to figure it out.</em></h1>
+    <p class="lead">FutureBridge connects you with someone a few steps ahead, so the next step feels less like a guess and more like a conversation.</p>
+    <div class="hero-ctas">
+      <a href="#join" class="btn btn-primary">Find your mentor</a>
+      <a href="#playbooks" class="btn btn-ghost">See the playbooks</a>
+    </div>
+  </div>
+
+  <svg class="arch-line" viewBox="0 0 1400 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 280 C 0 120, 280 0, 700 0 C 1120 0, 1400 120, 1400 280" stroke="#0B2545" stroke-width="2" stroke-opacity="0.3"/>
+    <path d="M120 280 C 120 170, 360 90, 700 90 C 1040 90, 1280 170, 1280 280" stroke="#C9A35C" stroke-width="2.5" stroke-opacity="0.55"/>
+    <path d="M260 280 C 260 210, 440 170, 700 170 C 960 170, 1140 210, 1140 280" stroke="#0B2545" stroke-width="1.5" stroke-opacity="0.16"/>
+  </svg>
+</header>
+
+<div class="arch-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0 C 360 60, 1080 60, 1440 0 L1440 60 L0 60 Z" fill="#0B2545"/>
+  </svg>
+</div>
+
+<section class="audience" id="who">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Who it's for</span>
+      <h2>Two sides of the same bridge.</h2>
+      <p>Mentees gain clarity. Mentors pass on what they wish someone had told them. Neither side needs to commit to much.</p>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <span class="tag">For mentees</span>
+        <h3>Year 12 to first year of university</h3>
+        <p>If you're unsure what's next, FutureBridge connects you with someone already a few steps ahead in your field. Real perspective, realistic options, and a way to think beyond grades alone.</p>
+        <a href="https://tally.so/r/w7OBXP" class="btn btn-ghost">Sign up as a mentee</a>
+      </div>
+      <div class="audience-card reveal">
+        <span class="tag">For mentors</span>
+        <h3>Second year of university to working professional</h3>
+        <p>Pass on the guidance you wish you'd had earlier. It doesn't take much time, even one short conversation a month can change how someone sees their next step.</p>
+        <a href="https://tally.so/r/mD9rK5" class="btn btn-ghost">Sign up as a mentor</a>
+      </div>
+    </div>
+
+    <div class="fields-list reveal">
+      <span class="tag">Fields we currently match</span>
+      <div class="fields-pills">
+        <span>Medicine</span>
+        <span>Law</span>
+        <span>Dentistry</span>
+        <span>Engineering</span>
+        <span>Psychology</span>
+        <span>Software Engineering</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>From sign-up to first conversation.</h2>
+      <p>No interviews, no algorithm theatre. A real person matches every pair by hand.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-pillar"></div>
+        <h3>Tell us where you are</h3>
+        <p>Sign up as a mentee or mentor and share your field, interests, and what you're looking for.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-pillar"></div>
+        <h3>We make the match</h3>
+        <p>Every pair is matched by hand, not by an algorithm, so the fit actually makes sense for both people.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-pillar"></div>
+        <h3>You take it from there</h3>
+        <p>We introduce you by email. From that point, it's a conversation, not a curriculum.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="playbooks" style="background: var(--cream-dim);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Go further than grades</span>
+      <h2>Field-specific playbooks.</h2>
+      <p>What matters early, common mistakes to avoid, and how to get the most out of your mentor. Written for students who want more than generic advice. £10, one time, no subscription.</p>
+    </div>
+
+    <div class="playbooks-grid">
+
+      <div class="playbook-card reveal">
+        <span class="field-tag">Medicine</span>
+        <h3>Medicine Playbook</h3>
+        <p>What to focus on before applications, how to stand out beyond grades, and the questions worth asking a mentor in the field.</p>
+        <div class="price-row">
+          <span class="price">£10</span>
+          <a href="https://futurebridgeuk.gumroad.com/l/tprbvs" class="get-link">Get it →</a>
+        </div>
+      </div>
+
+      <div class="playbook-card reveal">
+        <span class="field-tag">Law</span>
+        <h3>Law Playbook</h3>
+        <p>Early mistakes to avoid, what actually matters for applications, and how to make the most of a legal mentor.</p>
+        <div class="price-row">
+          <span class="price">£10</span>
+          <a href="https://futurebridgeuk.gumroad.com/l/smmmfh" class="get-link">Get it →</a>
+        </div>
+      </div>
+
+      <div class="playbook-card reveal">
+        <span class="field-tag">Dentistry</span>
+        <h3>Dentistry Playbook</h3>
+        <p>Practical, honest guidance for students early in the journey toward dentistry, beyond what school careers advice covers.</p>
+        <div class="price-row">
+          <span class="price">£10</span>
+          <a href="https://futurebridgeuk.gumroad.com/l/iakdcq" class="get-link">Get it →</a>
+        </div>
+      </div>
+
+      <div class="playbook-card reveal">
+        <span class="field-tag">Engineering</span>
+        <h3>Engineering Playbook</h3>
+        <p>Covers mechanical, civil, aerospace and electrical paths, what matters early and how to choose a direction with more confidence.</p>
+        <div class="price-row">
+          <span class="price">£10</span>
+          <a href="https://futurebridgeuk.gumroad.com/l/gzycpq" class="get-link">Get it →</a>
+        </div>
+      </div>
+
+      <div class="playbook-card reveal">
+        <span class="field-tag">Psychology</span>
+        <h3>Psychology Playbook</h3>
+        <p>Clarity on a field with many directions, what to explore early, and how to use a mentor conversation well.</p>
+        <div class="price-row">
+          <span class="price">£10</span>
+          <a href="https://futurebridgeuk.gumroad.com/l/mornr" class="get-link">Get it →</a>
+        </div>
+      </div>
+
+      <div class="playbook-card reveal">
+        <span class="field-tag">Software Engineering</span>
+        <h3>Tech Playbook</h3>
+        <p>What actually matters before your first internship or degree, and how to avoid the advice that wastes your time.</p>
+        <div class="price-row">
+          <span class="price">£10</span>
+          <a href="https://futurebridgeuk.gumroad.com/l/mdkpk" class="get-link">Get it →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="playbooks-note reveal">Matched mentees also receive the free Starter Guide and Goal-Setting Workbook by email.</p>
+  </div>
+</section>
+
+<section class="join" id="join">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Join us</span>
+      <h2>You don't need a five year plan.<br>You need one good conversation.</h2>
+    </div>
+
+    <div class="join-ctas">
+      <div class="join-card reveal">
+        <span class="tag">Mentee</span>
+        <h3>Find a mentor</h3>
+        <p>Free to join. Matched by hand, usually within a couple of weeks depending on field.</p>
+        <a href="https://tally.so/r/w7OBXP" class="btn btn-primary">Sign up as a mentee</a>
+      </div>
+      <div class="join-card reveal">
+        <span class="tag">Mentor</span>
+        <h3>Pass it on</h3>
+        <p>Low time commitment. One or two short conversations a month is enough to matter.</p>
+        <a href="https://tally.so/r/mD9rK5" class="btn btn-primary">Sign up as a mentor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="icon_only.png" alt="FutureBridge icon">
+        <span>FutureBridge</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/futurebridgeuk?igsh=MWI2MDd3bmwxdGRndA%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@futurebridge.uk" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.linkedin.com/company/futurebridge-mentorship/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:futurebridge.contact@gmail.com">Email</a>
+      </div>
+    </div>
+    <p class="footer-note">FutureBridge — connecting ambitious young people with real-world mentorship.</p>
+  </div>
+</footer>
+
+<script>
+  // Content is visible by default (see .reveal base styles). The animated
+  // entrance is a progressive enhancement only added once we know
+  // IntersectionObserver is available, so nothing ever depends on JS
+  // running successfully to be seen.
+  if ('IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-ready');
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  }
+</script>
+
+</body>
+</html>
