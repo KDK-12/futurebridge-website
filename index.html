@@ -521,6 +521,82 @@
     .playbooks-grid { grid-template-columns: 1fr; }
   }
 
+  /* ---------- Testimonials ---------- */
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border: 1px solid rgba(11, 37, 69, 0.08);
+    border-radius: 16px;
+    padding: 30px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-card .quote-mark {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .testimonial-card p.quote {
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 22px;
+    flex-grow: 1;
+  }
+
+  .testimonial-card .attribution {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(11, 37, 69, 0.08);
+    padding-top: 16px;
+  }
+
+  .testimonial-card .avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .testimonial-card .who-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--navy);
+  }
+
+  .testimonial-card .who-role {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 700px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+
   /* ---------- Join ---------- */
 
   .join {
@@ -731,7 +807,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Go further than grades</span>
       <h2>Field-specific playbooks.</h2>
-      <p>What matters early on, common mistakes to avoid, the best questions to ask your mentor and much more. Written for students who don't want generic advice, they want clarity and confidence in pursuing their dreams. £10, one time, no subscription.</p>
+      <p>What matters early, common mistakes to avoid, and how to get the most out of your mentor. Written for students who want more than generic advice. £10, one time, no subscription.</p>
     </div>
 
     <div class="playbooks-grid">
@@ -788,7 +864,7 @@
 
       <div class="playbook-card reveal">
         <span class="field-tag">Software Engineering</span>
-        <h3>Software Engineering Playbook</h3>
+        <h3>Tech Playbook</h3>
         <p>What actually matters before your first internship or degree, and how to avoid the advice that wastes your time.</p>
         <div class="price-row">
           <span class="price">£10</span>
@@ -799,6 +875,68 @@
     </div>
 
     <p class="playbooks-note reveal">Matched mentees also receive the free Starter Guide and Goal-Setting Workbook by email.</p>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Proof, not promises</span>
+      <h2>What mentors and mentees actually say.</h2>
+      <p>Real responses from people matched through FutureBridge, shared with their permission.</p>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card reveal">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote">What's stood out to me most is how much more meaningful these conversations can be when they're peer-to-peer. It makes the guidance feel more relatable and practical.</p>
+        <div class="attribution">
+          <div class="avatar">A</div>
+          <div>
+            <div class="who-name">Azaan</div>
+            <div class="who-role">Law Mentor</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote">What I appreciate about my mentee is that she always asks questions, that shows me I am truly helping her.</p>
+        <div class="attribution">
+          <div class="avatar">S</div>
+          <div>
+            <div class="who-name">Saman</div>
+            <div class="who-role">Psychology Mentor</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote">My mentor is so friendly and sweet and shares so much great advice, not only in a professional sense but also how to get the most out of the university experience.</p>
+        <div class="attribution">
+          <div class="avatar">S</div>
+          <div>
+            <div class="who-name">Suvarna</div>
+            <div class="who-role">Psychology Mentee</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote">Even though we haven't had many conversations, the ones we have had are invaluable to me and have really helped with my next steps in medicine.</p>
+        <div class="attribution">
+          <div class="avatar">A</div>
+          <div>
+            <div class="who-name">Ammi</div>
+            <div class="who-role">Medicine Mentee</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
